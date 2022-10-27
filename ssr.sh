@@ -12,11 +12,11 @@ cat <<EOT >> /usr/local/shadowsocksr/user-config.json
 {
     "server": "0.0.0.0",
     "server_ipv6": "::",
-    "server_port": 9988,
+    "server_port": 6538,
     "local_address": "127.0.0.1",
     "local_port": 1080,
 
-    "password": "Zo1dyck\!\!\!",
+    "password": "Zo1dyck\$\$\$",
     "method": "none",
     "protocol": "auth_chain_a",
     "protocol_param": "",
@@ -59,8 +59,8 @@ systemctl enable nginx
 systemctl start nginx
 systemctl enable firewalld.service
 systemctl start firewalld.service
-firewall-cmd --permanent --add-port=9988/tcp
-firewall-cmd --permanent --add-port=9988/udp
+firewall-cmd --permanent --add-port=6538/tcp
+firewall-cmd --permanent --add-port=6538/udp
 firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --reload
 wget https://github.com/shadowsocksrr/shadowsocksr-csharp/releases/download/4.9.2/ShadowsocksR-win-4.9.2.zip
