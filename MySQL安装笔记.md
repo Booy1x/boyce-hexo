@@ -10,11 +10,11 @@ https://dev.mysql.com/downloads/installer/
 将下载的安装包(示例:`mysql-8.0.29-winx64`)解压到C盘根目录下。
 添加环境变量：`电脑->右键 属性->高级系统设置->环境变量->系统变量->PATH`，在PATH里添加入mysql安装路径下的bin的路径—例如我的是： 
 ```
-C:\Program Files (x86)\mysql-8.0.29-winx64
+C:\Program Files (x86)\mysql-8.0.29-winx64\bin
 ```
 ##### 3. 创建my.ini配置文件
 ``` bash
---在C:\Program Files (x86)\mysql-8.0.29-winx64创建my.cnf文件,内容如下：
+--在C:\Program Files (x86)\mysql-8.0.29-winx64创建my.ini文件,内容如下：
 [mysql]
 default-character-set=utf8mb4
 [mysqld]
@@ -33,14 +33,6 @@ character-set-server=utf8mb4
 default-storage-engine=INNODB
 --默认使用“mysql_native_password”插件认证
 default_authentication_plugin=mysql_native_password
-log-bin = C:\\mysql-8.0.29-winx64\\binlog\\binlog
-sync_binlog = 1
-binlog_cache_size = 4M
-max_binlog_cache_size = 2G
-max_binlog_size = 1G
-slow_query_log_file = C:\\mysql-8.0.29-winx64\\slow.log
-log-error = C:\\mysql-8.0.29-winx64\\error.log
-
 [client]
 --设置mysql客户端连接服务端时默认使用的端口
 port=3306
@@ -48,17 +40,23 @@ default-character-set=utf8mb4
 ```
 ##### 4. 创建data目录、安装服务及初始化
 ``` shell
+-- 在mysql安装目录下创建data文件夹即C:\Program Files (x86)\mysql-8.0.29-winx64\data
 -- 以管理员账号运行CMD，执行初始化引导：
-PS C:\Users\lby> mysqld --initialize --console
+PS C:\Program Files (x86)\mysql-8.0.29-winx64\bin> mysqld --initialize --console
 ...
 2022-10-12T04:26:17.411693Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: ,KOtD%adf2zD
 
 --此处会显示mysql的初始密码如上所示。
-C:\Windows\System32> mysqld --install mysqld
+C:\Program Files (x86)\mysql-8.0.29-winx64\bin> mysqld --install mysql6
 Service successfully installed.
 
+
+-- 打开注册表
+计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mysql6
+确认'ImagePath'的值为'C:\Program Files (x86)\mysql-8.0.29-winx64\bin\mysqld'
+
 --启动服务：
-C:\Windows\System32>net start mysqld
+C:\Windows\System32>net start mysql6
 mysqld 服务正在启动 .
 mysqld 服务已经启动成功。
 ```
@@ -70,7 +68,7 @@ mysql -uroot -p
 ALTER USER root@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUPASSWORD';
 flush privileges;
 ```
-##### 6. 注册多个MySQL服务
+##### 6. 注册多个MySQL服务(另外一个方式)
 ```
 mysqld install mysql6 --defaults-file="mysql.ini"
 ```
