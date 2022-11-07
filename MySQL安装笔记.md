@@ -65,10 +65,9 @@ mysqld 服务已经启动成功。
 mysql -uroot -p
 --输入密码即可登录
 --修改密码：
-ALTER USER root@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUPASSWORD';
+ALTER USER root@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourpassword';
+--开启远程登陆并修改密码：
+CREATE USER 'yourusername'@'%' IDENTIFIED BY 'yourpassword';
+grant all privileges on *.* to 'yourusername'@'%';
 flush privileges;
-```
-##### 6. 注册多个MySQL服务(另外一个方式)
-```
-mysqld install mysql6 --defaults-file="mysql.ini"
 ```
