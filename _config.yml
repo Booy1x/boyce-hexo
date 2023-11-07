@@ -5,7 +5,7 @@
 # Site
 title: booyee
 subtitle:
-description:
+description: a nobody
 keywords:
 author: Boyce
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://boyce-hexo.vercel.app
 root: /
 permalink: :year/:month/:day/:name/
 permalink_defaults:
@@ -50,7 +50,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ""
-  per_page: 10
+  per_page: 2
   order_by: -date
 
 # Category & Tag
@@ -79,3 +79,5 @@ theme: hexo-theme-brewski
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
+  repo: https://github.com/Booy1x/boyce-hexo.git
+  branch: main
