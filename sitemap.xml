@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2023/09/07/pwc-test/</loc>
+    <loc>http://boyce-hexo.vercel.app/2023/09/07/pwc-test/</loc>
     
     <lastmod>2023-11-06</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2023/09/06/hello-world/</loc>
+    <loc>http://boyce-hexo.vercel.app/2023/09/06/hello-world/</loc>
     
     <lastmod>2023-11-06</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2023/09/07/0907/</loc>
+    <loc>http://boyce-hexo.vercel.app/2023/09/07/0907/</loc>
     
     <lastmod>2023-09-07</lastmod>
     
@@ -30,7 +30,7 @@
   
 
   <url>
-    <loc>http://yoursite.com/</loc>
+    <loc>http://boyce-hexo.vercel.app/</loc>
     <lastmod>2023-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
